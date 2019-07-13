@@ -118,7 +118,7 @@ def create_ppt(template, img_path, report_path, word):
     run_31.text = word[5] + word[0]  # 内容
     font_31 = run_31.font
     font_31.name = 'Microsoft YaHei'  # 字体
-    # font_31.size = Pt(14)  # 字号
+    font_31.size = Pt(14)  # 字号
     # 第四页
     # 第一个文本框
     slide_4 = prs.slides[3]
@@ -284,11 +284,13 @@ def create_ppt2(template, img_path, img_path2, report_path, word, word2):
     slide_8 = prs.slides[7]
     table = slide_8.shapes[4].table
     # 方案1
+    table.cell(1, 0).text = word[5].strip()
     table.cell(1, 1).text = word[3]
     table.cell(1, 2).text = word[4]
     present = abs(float(word[3]) - float(word[4])) / float(word[3]) * 100
     table.cell(1, 3).text = str('%.2f' % present) + '%'
     # 方案2
+    table.cell(2, 0).text = word2[5].strip()
     table.cell(2, 1).text = word2[3]
     table.cell(2, 2).text = word2[4]
     present2 = abs(float(word2[3]) - float(word2[4])) / float(word2[3]) * 100
@@ -473,19 +475,19 @@ def create_ppt3(
     slide_9 = prs.slides[8]
     table = slide_9.shapes[4].table
     # 方案1
-    table.cell(1, 0).text = word[5]
+    table.cell(1, 0).text = word[5].strip()
     table.cell(1, 1).text = word[3]
     table.cell(1, 2).text = word[4]
     present = abs(float(word[3]) - float(word[4])) / float(word[3]) * 100
     table.cell(1, 3).text = str('%.2f' % present) + '%'
     # 方案2
-    table.cell(2, 0).text = word2[5]
+    table.cell(2, 0).text = word2[5].strip()
     table.cell(2, 1).text = word2[3]
     table.cell(2, 2).text = word2[4]
     present2 = abs(float(word2[3]) - float(word2[4])) / float(word2[3]) * 100
     table.cell(2, 3).text = str('%.2f' % present2) + '%'
     # 方案3
-    table.cell(3, 0).text = word3[5]
+    table.cell(3, 0).text = word3[5].strip()
     table.cell(3, 1).text = word3[3]
     table.cell(3, 2).text = word3[4]
     present3 = abs(float(word3[3]) - float(word3[4])) / float(word3[3]) * 100
